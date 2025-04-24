@@ -3,14 +3,16 @@ export default {
 
   namespace: 'users',
 
-  state: {},
+  state: {
+    topList:[]
+  },
 
   subscriptions: {
     setup({ dispatch, history }) {  // eslint-disable-line
       return history.listen(({ pathname, query }) => {
         if (pathname === '/users') {
           console.log('pathname',pathname);
-          // dispatch({ type: 'fetch', payload: query });
+          dispatch({ type: 'fetch', payload: query });
         }
       });
     },
